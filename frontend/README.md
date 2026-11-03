@@ -36,3 +36,25 @@ npm run dev
 ```sh
 npm run build
 ```
+
+## Production deployment
+
+This is a static Vue 3 single-page application. Build it with `npm ci` and
+`npm run build`, then upload the **contents** of `dist/` to the domain's document
+root. The build includes `public/.htaccess`, which enables Apache history-mode
+routing, cache headers, and basic response headers. Apache `mod_rewrite` and
+`mod_headers` should be enabled. For other hosts, configure an equivalent SPA
+fallback in the hosting dashboard.
+
+Point the domain to the hosting server and enable HTTPS there; DNS and SSL are
+hosting configuration, not part of this frontend.
+
+## Image optimization
+
+Optimized WebP versions are checked in under `src/assets/optimized` and `public`.
+After replacing source images, regenerate them and build:
+
+```sh
+npm run optimize:images
+npm run build
+```

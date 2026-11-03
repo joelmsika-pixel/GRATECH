@@ -2,12 +2,12 @@
 import { onMounted, onUnmounted, ref } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import imsLogo from './Clients logo/IMS.svg'
-import kbaiLogo from './Clients logo/KBAI.svg'
-import mzumbeLogo from './Clients logo/mzumbe.svg'
-import rosminiLogo from './Clients logo/ROSMINI.svg'
-import ruwasaLogo from './Clients logo/RUWASA.svg'
-import uzimaLogo from './Clients logo/Uzima primary school.svg'
+import imsLogo from '../assets/optimized/ims-logo.webp'
+import kbaiLogo from '../assets/optimized/kbai-logo.webp'
+import mzumbeLogo from '../assets/optimized/mzumbe-logo.webp'
+import rosminiLogo from '../assets/optimized/rosmini-logo.webp'
+import ruwasaLogo from '../assets/optimized/ruwasa-logo.webp'
+import uzimaLogo from '../assets/optimized/uzima-logo.webp'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -201,15 +201,23 @@ onUnmounted(() => {
 			aria-hidden="true"
 		>
 			<img
-				src="/client-computer-background.jpg"
+				src="/client-computer-background.webp"
 				alt=""
 				class="clients-background-image absolute inset-0 h-full w-full object-cover object-[58%_center] opacity-75 blur-[4px]"
+				width="1600"
+				height="1068"
+				loading="lazy"
+				decoding="async"
 				@load="scheduleClientsParallax"
 			/>
 			<img
-				src="/client-desktop-screen.png"
+				src="/client-desktop-screen.webp"
 				alt=""
 				class="clients-desktop-screen absolute max-w-none object-fill opacity-90 [clip-path:polygon(5%_0,100%_16%,90%_100%,0_80%)]"
+				width="650"
+				height="360"
+				loading="lazy"
+				decoding="async"
 				@load="scheduleClientsParallax"
 			/>
 			<div class="absolute inset-0 bg-gradient-to-r from-[#dce5ff]/95 via-[#6f86e8]/80 to-[#24387f]/70"></div>
@@ -259,7 +267,7 @@ onUnmounted(() => {
 						<div class="relative z-[1] mb-5 grid h-[104px] w-full place-items-center">
 							<span class="absolute h-20 w-40 rounded-full bg-[#f0f1ff] opacity-70 blur-2xl transition duration-300 group-hover:opacity-100"></span>
 							<span v-if="client.logo" aria-hidden="true" class="absolute bottom-[13px] h-4 w-40 translate-y-1 rounded-[50%] bg-[#171c3f]/35 blur-[20px] transition-opacity duration-300 group-hover:opacity-75"></span>
-							<img v-if="client.logo" class="relative z-[1] block max-h-[82px] max-w-[210px] object-contain" :style="client.logoScale ? { transform: `scale(${client.logoScale})` } : undefined" :src="client.logo" :alt="`${client.shortName || client.name} logo`" />
+							<img v-if="client.logo" class="relative z-[1] block max-h-[82px] max-w-[210px] object-contain" :style="client.logoScale ? { transform: `scale(${client.logoScale})` } : undefined" :src="client.logo" :alt="`${client.shortName || client.name} logo`" loading="lazy" decoding="async" />
 							<span v-else class="relative z-[1] grid h-16 w-16 place-items-center rounded-full bg-gradient-to-br from-[#777be4] to-[#555bc4] text-base font-bold tracking-[-.04em] text-white shadow-[0_8px_18px_rgb(85_91_196_/_20%)]">
 									{{ client.initials }}
 								</span>

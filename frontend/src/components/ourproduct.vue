@@ -2,9 +2,9 @@
 import { onMounted, onUnmounted, ref } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import lenovoShowcaseImage from './images/header photos/Lenovo 300ek.svg'
-import dellMonitorImage from './images/header photos/dell monitor.svg'
-import desktopMockupImage from './images/header photos/Desktop.png'
+import lenovoShowcaseImage from '../assets/optimized/lenovo-300e.webp'
+import dellMonitorImage from '../assets/optimized/dell-monitor.webp'
+import desktopMockupImage from '../assets/optimized/desktop-mockup.webp'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -53,11 +53,11 @@ onUnmounted(() => motionQuery?.revert())
 			<div class="product-grid" aria-label="Product cards">
 				<div v-for="model in ['desktop', 'laptop', 'monitor']" :key="model" class="product-card" :class="{ 'product-card-laptop': model === 'laptop', 'product-card-monitor': model === 'monitor' }" :aria-label="`${model} computer`">
 					<div class="product-device" :class="`device-${model}`">
-						<img v-if="model === 'laptop'" class="product-laptop-image" :src="lenovoShowcaseImage" alt="Lenovo 300e laptop shown from multiple angles" />
-						<img v-else-if="model === 'monitor'" class="product-monitor-image" :src="dellMonitorImage" alt="Dell monitor with stand" />
+						<img v-if="model === 'laptop'" class="product-laptop-image" :src="lenovoShowcaseImage" alt="Lenovo 300e laptop shown from multiple angles" width="1200" height="799" loading="lazy" decoding="async" />
+						<img v-else-if="model === 'monitor'" class="product-monitor-image" :src="dellMonitorImage" alt="Dell monitor with stand" width="1000" height="833" loading="lazy" decoding="async" />
 						<template v-else>
 							<div class="device-screen">
-								<img class="desktop-screen-image" :src="desktopMockupImage" alt="" />
+								<img class="desktop-screen-image" :src="desktopMockupImage" alt="" width="1000" height="497" loading="lazy" decoding="async" />
 							</div>
 							<div v-if="model === 'desktop'" class="desktop-stand"><i></i><b></b></div>
 						</template>

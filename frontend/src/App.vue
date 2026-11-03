@@ -8,12 +8,28 @@ import router from './router'
 const isInitialLoading = ref(true)
 
 onMounted(async () => {
-	await Promise.all([
-		router.isReady(),
-		new Promise((resolve) => window.setTimeout(resolve, 3000)),
-	])
+	await router.isReady()
 	isInitialLoading.value = false
 })
+
+function updateRouteMetadata(to) {
+	const title = to.meta.title || 'GRATECH Company | Technology Solutions in Tanzania'
+	const description = to.meta.description
+		|| 'GRATECH Company provides reliable IT support, hardware, software, networking, and digital solutions for organizations across Tanzania.'
+	const canonicalUrl = new URL(to.path, window.location.origin).href
+
+	document.title = title
+	document.querySelector('link[rel="canonical"]')?.setAttribute('href', canonicalUrl)
+	document.querySelector('meta[name="description"]')?.setAttribute('content', description)
+	document.querySelector('meta[property="og:title"]')?.setAttribute('content', title)
+	document.querySelector('meta[property="og:description"]')?.setAttribute('content', description)
+	document.querySelector('meta[property="og:url"]')?.setAttribute('content', canonicalUrl)
+	document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', title)
+	document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', description)
+}
+
+updateRouteMetadata(router.currentRoute.value)
+router.afterEach(updateRouteMetadata)
 </script>
 
 <template>

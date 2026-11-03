@@ -8,9 +8,9 @@ import OurServices from './ourservices.vue'
 import OurClients from './ourclients.vue'
 import Testimonials from './testmonials.vue'
 import ContactUs from './contactUs.vue'
-import lenovoShowcaseImage from './images/header photos/Lenovo 300ek.svg'
-import dellMonitorImage from './images/header photos/dell monitor.svg'
-import desktopMockupImage from './images/header photos/Desktop.png'
+import lenovoShowcaseImage from '../assets/optimized/lenovo-300e.webp'
+import dellMonitorImage from '../assets/optimized/dell-monitor.webp'
+import desktopMockupImage from '../assets/optimized/desktop-mockup.webp'
 
 const slides = [
 	{

@@ -2,10 +2,10 @@
 import { onMounted, onUnmounted, ref } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import abubakariImage from './images/team images/Abubakary.png'
-import banyendaImage from './images/team images/Banyenda.png'
-import gradsonImage from './images/team images/Gradson.png'
-import victoryImage from './images/team images/Happy.png'
+import abubakariImage from '../assets/optimized/abubakari-mbasha.webp'
+import banyendaImage from '../assets/optimized/nikanda-banyenda.webp'
+import gradsonImage from '../assets/optimized/gradson-ibrahim.webp'
+import victoryImage from '../assets/optimized/happy-sanga.webp'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -113,6 +113,7 @@ onUnmounted(() => motionQuery?.revert())
 							:src="member.image"
 							:alt="`Portrait of ${member.name}`"
 							loading="lazy"
+							decoding="async"
 						/>
 						<span class="absolute left-3 top-3 grid h-7 w-7 place-items-center rounded-full border border-white/70 bg-white/90 text-[9px] font-bold tracking-wide text-[#555bc4]">{{ String(index + 1).padStart(2, '0') }}</span>
 					</div>

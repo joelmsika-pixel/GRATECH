@@ -1,7 +1,7 @@
 <script setup>
 import { ref, watch } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
-import gratechLogo from '../images/gratech-company-logo.png'
+import gratechLogo from '../../assets/optimized/gratech-company-logo.webp'
 
 const menuOpen = ref(false)
 const route = useRoute()
